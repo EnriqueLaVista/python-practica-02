@@ -39,6 +39,9 @@ for alum, notas in dict_alumnos.items():
 
 # Inciso C
 
+# Calcular el promedio general del curso
+prom_general = sum(dict_promedios.values()) / len(dict_promedios)
+
 # Inciso D
 
 # Inciso E
