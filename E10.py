@@ -44,4 +44,7 @@ prom_general = sum(dict_promedios.values()) / len(dict_promedios)
 
 # Inciso D
 
+# Obtener el promedio máximo y almacenar el nombre
+nombre_prom_max = max(dict_promedios, key=dict_promedios.get)
+
 # Inciso E
