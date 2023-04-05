@@ -48,3 +48,6 @@ prom_general = sum(dict_promedios.values()) / len(dict_promedios)
 nombre_prom_max = max(dict_promedios, key=dict_promedios.get)
 
 # Inciso E
+
+# Obtener el alumno con la nota más baja
+nombre_nota_min = min(dict_alumnos, key=dict_alumnos.get)
