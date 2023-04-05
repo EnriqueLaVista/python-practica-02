@@ -19,8 +19,8 @@ notas_2 = [30, 95, 28, 84, 84, 43, 66, 51, 4, 11, 58, 10, 13, 34, 96, 71, 86, 37
 # Inciso A
 
 # Limpiar el string de nombres
-for char in [' ', "'", '\n']:
-    nombres = nombres.replace(char,'')
+for caracter in [' ', "'", '\n']:
+    nombres = nombres.replace(caracter,'')
 
 # Crear diccionario de nombres con las notas
 lista_alumnos = list(zip(nombres.split(','), notas_1, notas_2))
@@ -29,7 +29,13 @@ dict_alumnos = {alum[0]: [alum[1], alum[2]] for alum in lista_alumnos}
 
 # Inciso B
 
-
+'''
+Calcular el promedio de notas de cada alumno
+guardandolo en un diccionario.
+'''
+dict_promedios = {}
+for alum, notas in dict_alumnos.items():
+    dict_promedios[alum] = sum(notas) / len(notas)
 
 # Inciso C
 
