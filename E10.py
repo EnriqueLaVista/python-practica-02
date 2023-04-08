@@ -30,16 +30,12 @@ for caracter in [' ', "'", '\n']:
     nombres = nombres.replace(caracter, '')
 
 # Capitalizar nombres
-lista_nombres = nombres.split(',')
-for i, nombre in enumerate(lista_nombres):
-    lista_nombres[i] = nombre.capitalize()
+lista_nombres = [nombre.capitalize() for nombre in nombres.split(',')]
 
-# Vincular nombres con notas
-lista_alumnos = list(zip(lista_nombres, notas_1, notas_2))
-
-# Crear diccionario de nombres con las notas
-dicc_alumnos = {alum[0]: [alum[1], alum[2]] for alum in lista_alumnos}
-
+# Crear diccionario de nombres relacionados con sus notas
+dicc_alumnos = {
+    alum[0]: [alum[1], alum[2]] 
+    for alum in zip(lista_nombres, notas_1, notas_2)}
 
 # Inciso B
 
@@ -66,7 +62,7 @@ nombre_prom_max = max(dicc_promedios, key=dicc_promedios.get)
 # Crear un diccionario con las menores notas
 dicc_menores_notas = {
     alum[0]: (lambda nom, *args: min(*args))(*alum)
-    for alum in lista_alumnos}
+    for alum in dicc_alumnos.items()}
 
 # Obtener el alumno con la nota más baja
 nombre_nota_min = min(dicc_menores_notas, key=dicc_menores_notas.get)
