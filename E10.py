@@ -29,9 +29,15 @@ notas_2 = [30, 95, 28, 84, 84, 43, 66, 51, 4, 11,
 for caracter in [' ', "'", '\n']:
     nombres = nombres.replace(caracter, '')
 
-# Crear diccionario de nombres con las notas
-lista_alumnos = list(zip(nombres.split(','), notas_1, notas_2))
+# Capitalizar nombres
+lista_nombres = nombres.split(',')
+for i, nombre in enumerate(lista_nombres):
+    lista_nombres[i] = nombre.capitalize()
 
+# Vincular nombres con notas
+lista_alumnos = list(zip(lista_nombres, notas_1, notas_2))
+
+# Crear diccionario de nombres con las notas
 dicc_alumnos = {alum[0]: [alum[1], alum[2]] for alum in lista_alumnos}
 
 
