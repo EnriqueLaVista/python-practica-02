@@ -32,43 +32,43 @@ for caracter in [' ', "'", '\n']:
 # Crear diccionario de nombres con las notas
 lista_alumnos = list(zip(nombres.split(','), notas_1, notas_2))
 
-dict_alumnos = {alum[0]: [alum[1], alum[2]] for alum in lista_alumnos}
+dicc_alumnos = {alum[0]: [alum[1], alum[2]] for alum in lista_alumnos}
 
 
 # Inciso B
 
 # Calcular el promedio de notas de cada alumno
-dict_promedios = {}
-for alum, notas in dict_alumnos.items():
-    dict_promedios[alum] = sum(notas) / len(notas)
+dicc_promedios = {}
+for alum, notas in dicc_alumnos.items():
+    dicc_promedios[alum] = sum(notas) / len(notas)
 
 
 # Inciso C
 
 # Calcular el promedio general del curso
-prom_general = sum(dict_promedios.values()) / len(dict_promedios)
+prom_general = sum(dicc_promedios.values()) / len(dicc_promedios)
 
 
 # Inciso D
 
 # Obtener el promedio máximo y almacenar el nombre
-nombre_prom_max = max(dict_promedios, key=dict_promedios.get)
+nombre_prom_max = max(dicc_promedios, key=dicc_promedios.get)
 
 
 # Inciso E
 
 # Crear un diccionario con las menores notas
-dict_menores_notas = {
+dicc_menores_notas = {
     alum[0]: (lambda nom, *args: min(*args))(*alum)
     for alum in lista_alumnos}
 
 # Obtener el alumno con la nota más baja
-nombre_nota_min = min(dict_menores_notas, key=dict_menores_notas.get)
+nombre_nota_min = min(dicc_menores_notas, key=dicc_menores_notas.get)
 
 
 # Imprimir resultados
 print(f'B: El promedio de cada alumno es:')
-for alum, prom in dict_promedios.items():
+for alum, prom in dicc_promedios.items():
     print('   ' + alum + ': ' + str(prom))
 
 print(f'C: El promedio general del curso es de {prom_general}')
