@@ -58,15 +58,8 @@ nombre_prom_max = max(dict_promedios, key=dict_promedios.get)
 # Inciso E
 
 # Crear un diccionario con las menores notas
-def calcular_menor(nombre, *args):
-    '''
-    Devuelve el menor entero de una tupla que
-    proviene de un diccionario
-    '''
-    return min(args)
-
 dict_menores_notas = {
-    alum[0]: calcular_menor(*alum)
+    alum[0]: (lambda nom, *args: min(*args))(*alum)
     for alum in lista_alumnos}
 
 # Obtener el alumno con la nota más baja
