@@ -37,6 +37,7 @@ dicc_alumnos = {
     alum[0]: [alum[1], alum[2]] 
     for alum in zip(lista_nombres, notas_1, notas_2)}
 
+
 # Inciso B
 
 # Calcular el promedio de notas de cada alumno
@@ -60,9 +61,7 @@ nombre_prom_max = max(dicc_promedios, key=dicc_promedios.get)
 # Inciso E
 
 # Crear un diccionario con las menores notas
-dicc_menores_notas = {
-    alum[0]: (lambda nom, *args: min(*args))(*alum)
-    for alum in dicc_alumnos.items()}
+dicc_menores_notas = {alum[0]: min(alum[1]) for alum in dicc_alumnos.items()}
 
 # Obtener el alumno con la nota más baja
 nombre_nota_min = min(dicc_menores_notas, key=dicc_menores_notas.get)
